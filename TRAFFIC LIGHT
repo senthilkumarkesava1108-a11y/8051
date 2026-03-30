@@ -1,0 +1,26 @@
+#include<reg51.h>
+
+sbit red = P2^0;
+sbit yellow = P2^1;
+sbit green = P2^2;
+void delay(unsigned int ms);
+	void main(){
+		red=yellow=green=0;
+		
+		red=1;
+		delay(15000);
+		red=0;
+		
+		yellow=1;
+		delay(10000);
+		yellow=0;
+		
+		green=1;
+		delay(15000);
+		green=0;
+	}
+	void delay(unsigned int ms){
+		int i, j;
+		for(i=0;i<ms;i++)
+		for(j=0;j<100;j++);
+	}
