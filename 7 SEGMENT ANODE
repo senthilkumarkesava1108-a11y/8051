@@ -1,0 +1,21 @@
+#include <reg51.h>
+
+
+void main(){
+	
+	unsigned int i, j, x;
+	unsigned int SEG[10]={0XC0,0XF9,0XA4,0XB0,0X99,0X92,0X82,0XF8,0X80,0X90};
+	
+	P2 =0x00;
+	
+	while(1){
+		
+		for(x=0;x<10;x++){
+			
+			P2=SEG[x];
+			
+			for(i=0;i<1000;i++)
+			for(j=0;j<100;j++);
+		}
+	}
+}
