@@ -1,0 +1,92 @@
+#include <reg51.h>
+sbit LED1=P1^7;
+sbit LED2=P3^0;
+sbit LED3=P3^1;
+sbit LED4=P3^2;
+sbit LED5=P3^3;
+sbit LED6=P3^4;
+sbit LED7=P3^5;
+sbit LED8=P3^6;
+sbit LED9=P3^7;
+
+
+void delay(unsigned int);
+
+void display(unsigned int digit)
+{
+	switch(digit)
+	{
+		case 0:
+			P2=0XC0;
+		LED1=LED2=LED3=LED4=LED5=LED6=LED7=LED8=LED9=0;
+		break;
+		case 1:
+		P2=0xf9;
+		LED1=1;
+		LED2=LED3=LED4=LED5=LED6=LED7=LED8=LED9=0;
+		break;
+		case 2:
+		P2=0xa4;
+		LED1=LED2=1;
+		LED3=LED4=LED5=LED6=LED7=LED8=LED9=0;
+		break;
+		case 3:
+		P2=0xb0;
+		LED1=LED2=LED3=1;
+		LED4=LED5=LED6=LED7=LED8=LED9=0;
+		break;
+		case 4:
+		P2=0x99;
+		LED1=LED2=LED3=LED4=1;
+		LED5=LED6=LED7=LED8=LED9=0;
+		break;
+		case 5:
+		P2=0x92;
+		LED1=LED2=LED3=LED4=LED5=1;
+		LED6=LED7=LED8=LED9=0;
+		break;
+		case 6:
+			P2=0x82;
+		LED1=LED2=LED3=LED4=LED5=LED6=1;
+		LED7=LED8=LED9=0;
+		break;
+		case 7:
+			P2=0xf8;
+		LED1=LED2=LED3=LED4=LED5=LED6=LED7=1;
+		LED8=LED9=0;
+		break;
+		case 8:
+			P2=0x80;
+		LED1=LED2=LED3=LED4=LED5=LED6=LED7=LED8=1;
+		LED9=0;
+		break;
+		case 9:
+			P2=0x90;
+		LED1=LED2=LED3=LED4=LED5=LED6=LED7=LED8=LED9=1;
+		break;
+		default:
+			P2=0xFF;
+		
+		break;
+	}
+}
+void main(){
+	unsigned char i;
+	
+	while(1){
+		for(i=0;i<=9;i++){
+			display(i);
+			delay(1000);
+		}
+	}
+}
+	void delay(unsigned int ms)
+		{
+			int i, j;
+			for(i=0;i<ms;i++)
+			for(j=0;j<100;j++);
+		}
+		
+		
+   
+	
