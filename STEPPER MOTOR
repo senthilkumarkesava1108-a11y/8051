@@ -1,0 +1,26 @@
+#include <reg51.h>
+sbit pina=P3^0;
+sbit pinb=P3^1;
+sbit pinc=P3^2;
+sbit pind=P3^3;
+void main()
+{
+while(1)
+	{
+	unsigned int i;
+		pina=pinb=pinc=pind=0;
+		pina=1;
+	pinb=pinc=pind=0;
+		for(i=0;i<1000;i++);
+			pinb=1;
+	pina=pinc=pind=0;
+		for(i=0;i<1000;i++);
+
+		pinc=1;
+	pinb=pina=pind=0; 
+		for(i=0;i<1000;i++);
+	pind=1;
+	pinb=pinc=pina=0;
+		for(i=0;i<1000;i++);
+	}
+}
